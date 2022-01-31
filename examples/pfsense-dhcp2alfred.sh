@@ -16,6 +16,6 @@ ALFRED_UPDATE_FREQ=290 # Alfred has a 10 minute timeout, this allows for one pos
 
 while true; do
   ARPLIST=$(cat /usr/local/arpwatch/arp_${ARPWATCH_INTERFACE}.dat | awk '{ print $3, $1, $2, $4 }' | sort -r)
-  ssh $ALFRED_SERVER "echo '$ARPLIST' | alfred -s $ALFRED_DHCP_EXHCANGE"
+  ssh $ALFRED_SERVER "echo '$ARPLIST' | alfred -s $ALFRED_DHCP_EXCHANGE"
   sleep $ALFRED_UPDATE_FREQ
 done
