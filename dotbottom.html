@@ -60,6 +60,36 @@ for (o2 in obj4){
   }
 }
 
+
+
+// when an external DHCP server populates alfred with mac->IP that becomes txt5
+txt5 = txt5.slice(0, -1)
+txt5=txt5.replaceAll('\x0a','|')
+txt5=txt5.replaceAll('",' , '":')
+txt5='{ "dhcp" : [  ' +txt5+ ' ] }'
+if (haasdebug) console.log(txt5)
+var obj5 = JSON.parse(txt5)
+if (haasdebug) console.log("Num external dhcp registrations: "+ obj5.dhcp.length )
+for (x in obj5.dhcp) {
+  if (haasdebug) console.log(obj5.dhcp[x])
+  for (y in obj5.dhcp[x]) {
+    if (haasdebug) console.log(y)
+    res = obj5.dhcp[x][y].slice(0, -1).split("|")
+    for (i in res) {
+      if (res[i]!=undefined){
+        l3 = res[i].split(" ")
+        if (l3.length>=3) {
+          name = (l3[3]!='') ? l3[3] : 'unknown'
+          if (haasdebug) console.log("l3 is: "+l3[1]+" / "+l3[2]+" / "+name)
+          dhcpmap[l3[1].toUpperCase()]={ip:l3[2],host:name}
+        }
+      }
+    }
+  }
+}
+
+
+
 var obj = JSON.parse(txt);
 nodemap={}
 for (r = 0; r < obj.vis.length; r++) {
