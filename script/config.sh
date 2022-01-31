@@ -4,3 +4,11 @@ ALFRED_MYIP_DATE=65
 ALFRED_MAC=66
 ALFRED_CHAN_INFO= 67
 ALFRED_DHCP_EXCHANGE=68
+
+#Source for GIT
+#GIT_USER=drandyhaas
+#GIT_BRANCH=master
+GIT_USER=pccasto
+GIT_BRANCH=infoshare
+
+#Source for firmware
