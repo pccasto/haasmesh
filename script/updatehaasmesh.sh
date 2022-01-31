@@ -1,5 +1,5 @@
 # use GIT_* from configuration
-source config.sh
+source /root/script/config.sh
 
 cd /root;
 
