@@ -1,0 +1,22 @@
+Currently very experimental.
+
+These are attempts to create a build configuration for the Luma device (the only one I have) to use against OpenWRT 21.02.
+
+First attempt at least didn't brick the Luma.
+Upon upgrade there were a few elements that were automatically converted.
+
+Compared to the original Maxwell it includes a few extra Luci packages and tools.
+Don't have the original .config file to compare yet.
+
+Luci Dashboard
+Luci opkg -- but doesn't show any available packages beyond installed.
+
+The Luma device has bluetooth. Not sure how that can be used, but added some tools to explore.
+
+The current build is missing some modules, and will need to go through some iterations.
+Seemingly missing - alfred & batadv-vis, even though I thought they were included.
+the haasmesh wifi does not have encryption, so whatever was providing WPA3 PSK is missing.
+
+
+
+
