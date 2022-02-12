@@ -10,11 +10,11 @@ sed -i s%eth3%eth0%g network
 
 cd -
 
-batethifname=`uci get network.bat_eth.ifname`
+batethifname=`uci get network.bat_eth.device`
 echo "Backhaul ethernet is now $batethifname "
-lanethifname=`uci get network.lan.ifname`
+lanethifname=`uci get network.lan.device`
 echo "LAN ethernet is now $lanethifname "
-wanethifname=`uci get network.wan.ifname`
+wanethifname=`uci get network.wan.device`
 echo "WAN ethernet is now $wanethifname "
 
 batethmac=`ifconfig | grep HW | grep $batethifname |cut -d ":" -f 3-|sed 's% %%g'`

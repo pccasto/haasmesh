@@ -8,15 +8,22 @@ config globals 'globals'
         option ula_prefix 'fdb0:42d0:69f2::/48'
 
 config interface 'lan'
-        option type 'bridge'
+        option device 'br-lan'
         option proto 'static'
         option netmask '255.255.255.0'
         option gateway '192.168.2.1'
         list dns '192.168.2.1'
         option ip6assign '60'
-        option stp '1'
         option ipaddr '192.168.2.19'
-        option ifname 'bat0 eth0'
+
+config device
+	option name 'eth0'
+
+config device
+	option name 'br-lan'
+	option type 'bridge
+	list ports 'eth0'
+	list ports 'bat0
 
 config interface 'bat0'
         option proto 'batadv'

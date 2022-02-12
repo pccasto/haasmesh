@@ -82,7 +82,7 @@ fi
 done # looping until we find a parent
 
 echo "fixing backhaul mac address(es)" # to stop "received packet on bat0 with own address as source address" warnings
-batethmac=`ifconfig | grep HW | grep ^\`uci get network.bat_eth.ifname\` |cut -d ":" -f 3-|sed 's% %%g'`
+batethmac=`ifconfig | grep HW | grep ^\`uci get network.bat_eth.device\` |cut -d ":" -f 3-|sed 's% %%g'`
 batethmac=$(uci get network.bat_eth.macaddr)
 uci set network.bat_eth.macaddr="00:${batethmac}"
 if /root/script/model.sh |grep -q "Wavlink WL-WN531A6"; then
